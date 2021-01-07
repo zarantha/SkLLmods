@@ -49,6 +49,7 @@ Float                    Property NINODE_MIN_SCALE      = 0.1 AutoReadOnly
 ; NiOverride version data
 int                      Property NIOVERRIDE_VERSION    = 4 AutoReadOnly
 int                      Property NIOVERRIDE_SCRIPT_VERSION = 4 AutoReadOnly
+int                      Property SKEE_VERSION  = 1 AutoReadOnly
 
 ; XPMSE version data
 float                    Property XPMSE_VERSION         = 3.0 AutoReadOnly
@@ -898,5 +899,6 @@ endFunction
 
 
 bool Function CheckXPMSERequirements(Actor akActor, bool isFemale)
-	return XPMSELib.CheckXPMSEVersion(akActor, isFemale, XPMSE_VERSION, true) && XPMSELib.CheckXPMSELibVersion(XPMSELIB_VERSION) && SKSE.GetPluginVersion("NiOverride") >= NIOVERRIDE_VERSION && NiOverride.GetScriptVersion() >= NIOVERRIDE_SCRIPT_VERSION
+;	return XPMSELib.CheckXPMSEVersion(akActor, isFemale, XPMSE_VERSION, true) && XPMSELib.CheckXPMSELibVersion(XPMSELIB_VERSION) && SKSE.GetPluginVersion("NiOverride") >= NIOVERRIDE_VERSION && NiOverride.GetScriptVersion() >= NIOVERRIDE_SCRIPT_VERSION
+	return XPMSELib.CheckXPMSEVersion(akActor, isFemale, XPMSE_VERSION, true) && XPMSELib.CheckXPMSELibVersion(XPMSELIB_VERSION) && (SKSE.GetPluginVersion("SKEE") >= SKEE_VERSION && SKSE.GetPluginVersion("NiOverride") >= NIOVERRIDE_VERSION) && NiOverride.GetScriptVersion() >= NIOVERRIDE_SCRIPT_VERSION
 EndFunction
